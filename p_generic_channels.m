@@ -15,9 +15,13 @@ c_chans2skip = [chan_Mastoids, chan_EOG, chan_EMG, chan_VREF, chan_Face];
 
 
 i = 0;
+j = 0;
 for i_chan = 1:129
     if ~ismember(strcat('E', num2str(i_chan)), c_chans2skip)
         i = i + 1;
         ROIs.str_chans(i, 1) = {strcat('E', num2str(i_chan))};
+    else
+        j = j + 1;
+        nonROIs.str_chans(j, 1) = {strcat('E', num2str(i_chan))};
     end
 end
